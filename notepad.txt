@@ -1,0 +1,23 @@
+Scopes help us avoid naming conflicts 
+Any varibale we create inside curly brackets will only exist inside the curly brackets
+Strategy for Javascript:
+1. Figure out what steps we need
+2. Convert these steps into code
+and this is called Algorithm
+Falsy values:
+false 0 '' Nan undefined null
+except above list all are truthy values
+Nan: when we do some invalid math
+If the first value is falsy the guard operator will stop early and the result will be the first value, otherwise it wont stop early and give us a second value as a result
+In default operator it will stop early when first value is truthy; it is to set the default value.
+&& has a higher priority than || operator
+
+07-Functions
+a function lets us to reuse code and make our code easier to update
+rules for function name: 
+1. cant use special words ex. function
+2. cant start with a number
+3. cant use special characters except $ and _
+best practice = use camelCase
+Return statement: let us get a value out of a function
+Parameter: put value into a function

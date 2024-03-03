@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exercise-05</title>
+</head>
+
+<body>
+    <p>Cart Quantity</p>
+
+    <button onclick="
+    alert(`Cart quantity: ${cartQuantity}`);
+    console.log(`Cart quantity: ${cartQuantity}`);
+    ">Show Quantity</button>
+
+    <button onclick="
+    cartQuantity++;
+    console.log(`Cart quantity: ${cartQuantity}`);
+    ">Add to Cart</button>
+
+    <button onclick="
+    cartQuantity += 2;
+    console.log(`Cart quantity: ${cartQuantity}`);
+    ">+2</button>
+
+    <button onclick="
+    cartQuantity = cartQuantity + 3;
+    console.log(`Cart quantity: ${cartQuantity}`);
+    ">+3</button>
+
+    <button onclick="
+    cartQuantity+=4;
+    console.log(`Cart quantity: ${cartQuantity}`);
+    ">+4</button> 
+
+    <button onclick="
+    cartQuantity+=5;
+    console.log(`Cart quantity: ${cartQuantity}`);
+    ">+5</button>
+
+    <button onclick="
+    cartQuantity--;
+    console.log(`Cart quantity: ${cartQuantity}`);
+    ">Remove from cart</button>
+
+    <button onclick="
+    cartQuantity-=2;
+    console.log(`Cart quantity: ${cartQuantity}`);
+    ">-2</button>
+
+    <button onclick="
+    cartQuantity-=3;
+    console.log(`Cart quantity: ${cartQuantity}`);
+    ">-3</button>
+
+    <button onclick="
+    cartQuantity = 0;
+    console.log('Cart was reset.');
+    console.log(`Cart quantity: ${cartQuantity}`);
+    ">Reset Cart</button>
+
+    <script>
+        let name = "Anas"; // 5a. 
+        console.log(`My name is: ${name}`); // 5b.
+
+        let cost = 1 * 5 + 2 * 3 + 1 * 9; // 5c.
+        console.log(`Cost of food: $${cost}`); // 5d.
+
+        let tax = cost * 0.1; // 5e.
+        console.log(`Tax(10%): $${tax}`); // 5f.
+
+        // 5g.
+        let totalCost = cost + tax; 
+        console.log(`Total cost: $${totalCost}`);
+
+        let cartQuantity = 0;
+    </script>
+</body>
+
+</html>
