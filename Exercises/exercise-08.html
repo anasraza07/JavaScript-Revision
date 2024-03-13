@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exercise-08</title>
+</head>
+
+<body>
+    <h1>Exercise-08</h1>
+
+    <script>
+        const product = {
+            name: 'basketball',
+            price: 2095
+        };
+        console.log(product)
+
+        product.price += 500;
+        console.log(product);
+
+        product['delivery-time'] = '3days';
+        console.log(product)
+
+        function comparePrice(product1, product2) {
+            const price1 = product1.price;
+            const price2 = product2.price;
+            if (price1 < price2) {
+                return product1;
+            } else {
+                return product2;
+            }
+        }
+        const product2 = {
+            name: 'basketball',
+            price: 2095,
+        }
+        console.log(comparePrice(product, product2));
+
+        function isSameProduct(product1, product2) {
+            if (product1.name === product2.name && product1.price === product2.price) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        // // alternative funtion that uses less code:
+        // function isSameProduct(product1, product2) {
+        //     return (product1.name === product2.name &&
+        //         product1.price === product2.price)
+        // }
+        const product3 = {
+            name: 'hello',
+            price: 100,
+        }
+        const product4 = {
+            name: 'socks',
+            price: 200
+        };
+        const product5 = {
+            name: 'hello',
+            price: 100,
+        };
+        console.log(isSameProduct(product3, product4));
+        console.log(isSameProduct(product3, product5));
+
+        console.log('GOOD MORNING'.toLowerCase());
+        console.log('test'.repeat(2))
+
+        
+    </script>
+</body>
+
+</html>

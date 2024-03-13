@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Challenge 10</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        .toggle-button {
+            border: none;
+            background: rgb(230, 230, 230);
+            color: black;
+            padding: 15px;
+            font-size: 20px;
+            font-weight: 600;
+            border-radius: 8px;
+        }
+
+        .is-toggled {
+            background: #000;
+            color: white;
+        }
+
+        .cost-input {
+            font-size: 15px;
+            padding: 10px;
+        }
+
+        .calculate-button {
+            padding: 12px 15px;
+            background: green;
+            color: white;
+            border: none;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .error-message {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Challenge 10</h1>
+    <button class="toggle-button js-gaming-button" onclick="
+      onOffButton('js-gaming-button');
+    ">Gaming</button>
+
+    <button class="toggle-button js-movie-button" onclick="
+       onOffButton('js-movie-button');
+    ">Music</button>
+
+    <button class="toggle-button js-tech-button" onclick="
+        onOffButton('js-tech-button');
+    ">Tech</button>
+
+    <br><br>
+
+    <p>Amzaon Shipping</p>
+    <input type="text" name="" id="" placeholder="Cost of order" class="js-cost-input cost-input" onkeydown="
+        handleCostKeydown(event);
+    " onkeyup="
+        // if(document.querySelector('.js-cost-input').value < 0){
+        //     document.querySelector('.js-total-cost').innerHTML = `Error: cost cannot be less than $0`;
+        // };
+    " />
+    <button onclick="
+        calculateTotal();
+    " class="calculate-button">
+        Calculate
+    </button>
+    <p class="js-total-cost"></p>
+
+    <script>
+        function handleCostKeydown(event) {
+            if (event.key === "Enter") {
+                calculateTotal();
+            }
+        };
+
+        function calculateTotal() {
+            const inputElement = document.querySelector(".js-cost-input");
+            let cost = Number(inputElement.value);
+            const costParagrpah = document.querySelector(".js-total-cost");
+            if (cost < 0) {
+                costParagrpah.innerHTML = `Error: cost cannot be less than $0`;
+                costParagrpah.classList.add('error-message');
+                return;
+            }
+            
+            costParagrpah.classList.remove('error-message');
+
+            if (cost < 40) {
+                cost = cost + 10;
+            }
+
+            document.querySelector(".js-total-cost").innerHTML = `$${cost}`;
+        };
+
+        function onOffButton(className) {
+            const button1 = document.querySelector('.js-gaming-button');
+            const button2 = document.querySelector('.js-movie-button');
+            const button3 = document.querySelector('.js-tech-button');
+
+            const onOffButtonElem = document.querySelector(`.${className}`);
+
+            if (!onOffButtonElem.classList.contains('is-toggled')) {
+                button1.classList.remove('is-toggled');
+                button2.classList.remove('is-toggled');
+                button3.classList.remove('is-toggled');
+
+                onOffButtonElem.classList.add('is-toggled');
+            } else {
+                onOffButtonElem.classList.remove('is-toggled');
+            };
+        };
+    </script>
+</body>
+
+</html>

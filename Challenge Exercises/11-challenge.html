@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Challenge-11</title>
+</head>
+
+<body>
+    <h1>Challenge 11</h1>
+
+    <script>
+        /*
+        function minMax(array) {
+            const obj = {
+                min: array[0],
+                max: array[0]
+            };
+
+            if (array.length === 0) {
+                obj.min = null;
+                obj.max = null;
+                return obj;
+            }
+
+            for (let i = 0; i < array.length; i++) {
+                const num = array[i];
+                if (num < obj.min) {
+                    obj.min = num;
+                }
+
+                if (num > obj.max) {
+                    obj.max = num;
+                }
+            }
+
+            return obj;
+        }
+        console.log(minMax([1, -3, 5]));
+        console.log(minMax([-2, 3, -5, 7, 10]));
+
+        console.log(minMax([]));
+        console.log(minMax([2]));
+
+        function countWords(words) {
+
+            // 1. first check krna hai agr string obj main as a property hai
+            // 2. agr hai to +1 krdenge 
+            // 3. wrna string ko obj main save karwana hai
+
+        const resultObj = {};
+
+        for (let i = 0; i < words.length; i++) {
+            const word = words[i];
+
+            if (resultObj[word]) {
+                resultObj[word]++;
+            } else {
+                resultObj[word] = 1;
+            };
+        };
+
+        return resultObj;
+
+        }
+        console.log(countWords(['apple', 'grape', 'apple', 'apple']));
+        console.log(countWords(['', 'orange', 'banana', 'banana', 'grape', 'apple', 'apple']));
+        */
+
+        for (let i = 1; i <= 20; i++) {
+            if (i % 3 === 0 && i % 5 === 0) {
+                console.log('FizzBuzz');
+            } else if (i % 3 === 0) {
+                console.log('Fizz');
+            } else if (i % 5 === 0) {
+                console.log('Buzz');
+            } else {
+                console.log(i);
+            }
+        };
+
+        // // Another way:
+        // for (let i = 1; i <= 20; i++) {
+        //     if (i % 3 === 0 && i % 5 === 0) {
+        //         console.log('FizzBuzz');
+        //         continue;
+        //     } else if (i % 3 === 0) {
+        //         console.log('Fizz');
+        //         continue;
+        //     } else if (i % 5 === 0) {
+        //         console.log('Buzz');
+        //         continue;
+        //     }
+        //     console.log(i);
+        // };
+
+        function findIndex(array, word) {
+            for (let i = 0; i < array.length; i++) {
+                const searchingWord = array[i];
+                if (searchingWord === word) {
+                    return i;
+                }
+            }
+
+            return -1;
+        };
+
+        function unique(array) {
+            // pehle array lenge user se new array main push karenge
+            // phr hr value ko check karenge if wo added hai
+            // agr hai to wo waali iterate skip krdenge i.e. continue
+
+            const result = [];
+
+            for (let i = 0; i < array.length; i++) {
+                const word = array[i];
+                if (findIndex(result, word) === -1) {
+                    result.push(word);
+                } else {
+                    continue;
+                }
+            };
+
+            return result;
+        };
+        console.log(unique(['green', 'red', 'blue', 'red']));
+        console.log(unique(['red', 'green', 'green', 'red']));
+
+
+
+    </script>
+</body>
+
+</html>

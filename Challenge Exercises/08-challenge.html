@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge-08</title>
+</head>
+
+<body>
+    <h1>Challenge 08</h1>
+    <button onclick="
+        playGame('heads')
+    ">heads</button>
+    <button onclick="
+        playGame('tails')
+    ">tails</button>
+    <script>
+        const flipGameScore = JSON.parse(localStorage.getItem('flip-game-score')) || {
+            wins: 0,
+            losses: 0
+        };
+
+        function playGame(guess) {
+            const randomNumber = Math.random();
+            const computerMove = randomNumber < 0.5 ? 'heads' : 'tails';
+
+            const result = guess === computerMove ? 'You win!' : 'You lose!';
+
+            if (result === 'You win!') {
+                flipGameScore.wins++;
+            } else if (result === 'You lose!') {
+                flipGameScore.losses++;
+            }
+            console.log(flipGameScore);
+            
+            localStorage.setItem('flip-game-score', JSON.stringify(flipGameScore));
+        }
+    </script>
+</body>
+
+</html>
