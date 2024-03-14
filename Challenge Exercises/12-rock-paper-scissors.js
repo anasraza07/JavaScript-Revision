@@ -13,12 +13,24 @@ let score = JSON.parse(localStorage.getItem('score')) || {
 
 updateScoreElement();
 
-let isAutoplaying = false;
-let intervalId;
-
 // const autoPlay = () => {
 
 // };
+
+const autoPlayButton = document.querySelector('.js-auto-play-button');
+autoPlayButton.addEventListener('click', () => {
+    autoPlay();
+});
+
+document.querySelector('.js-reset-score-button')
+    .addEventListener('click', () => {
+        // resetScore();
+        showResetConfirmation();
+    });
+
+let isAutoplaying = false;
+let intervalId;
+
 function autoPlay() {
     if (!isAutoplaying) {
         intervalId = setInterval(() => {
@@ -26,11 +38,49 @@ function autoPlay() {
             playGame(playerMove);
         }, 1000);
         isAutoplaying = true;
+
+        autoPlayButton.innerHTML = 'Stop Playing';
     } else {
-        console.log(intervalId);
         clearInterval(intervalId);
         isAutoplaying = false;
-    }
+
+        autoPlayButton.innerHTML = 'Auto Play';
+    };
+};
+
+function resetScore() {
+    score.wins = 0;
+    score.losses = 0;
+    score.ties = 0;
+    localStorage.removeItem('score');
+    updateScoreElement();
+    document.querySelector('.js-result').innerHTML = '';
+    document.querySelector('.js-moves').innerHTML = '';
+}
+
+function showResetConfirmation() {
+    document.querySelector('.js-confirmation-msg')
+        .innerHTML = `
+            Are you sure you want to reset the score?
+            <button class="yes-button js-yes-button">Yes</button>
+            <button class="no-button js-no-button">No</button>
+        `;
+
+    document.querySelector('.js-yes-button')
+        .addEventListener('click', () => {
+            resetScore();
+            hideResetConfirmation();
+        });
+
+    document.querySelector('.js-no-button')
+        .addEventListener('click', () => {
+            hideResetConfirmation();
+        });
+};
+
+function hideResetConfirmation() {
+    document.querySelector('.js-confirmation-msg')
+        .innerHTML = '';
 };
 
 document.querySelector('.js-rock-button')
@@ -55,6 +105,11 @@ document.body.addEventListener('keydown', (event) => {
         playGame('paper');
     } else if (event.key === 's') {
         playGame('scissors');
+
+    } else if (event.key === 'a') {
+        autoPlay();
+    } else if (event.key === 'Backspace') {
+        resetScore();
     }
 });
 

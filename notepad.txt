@@ -88,7 +88,7 @@ Synchronous code: means computer will wait for one line to finish before going t
 all the code that we normally write will be synchronous code, the only time that code becomes asynchronous is when we use certain features of Javascript like SetTimeout.
 Advantages of SetTimeout: it doesnt block our code for x seconds, it just sets up the timer in the background and go to the next line of code
 SetInterval() it will keep running function in the future. SetInterval returns a number which is like an ID so that can use this ID to stop the interval.
-.forEach is the preferred way to loop through an array, in forEach return keyword works like continue in for loop for skip any iteration, but there is not the easy way to use break in forEach so if we need to use break then its better to use regualar forLoop.
+.forEach is the preferred way to loop through an array, in forEach return keyword works like continue in forloop for skip any iteration, but there is not the easy way to use break in forEach so if we need to use break then its better to use regualar forLoop.
 
 (PART 2):
 When passing a function into another function it is perfer to use an arrow function, arrow function works mostly like regular function but it have some shortcuts that regular dont have
@@ -99,6 +99,15 @@ addEventListener has some Advantages over an attribute:
 1. it lets us add multiple event listeners for one event
 2. we can remove an event listener using the another method .removeEventListener
 that's why Best practice = use addEventListener instead of using onclick attribute
+2 More Array Methods: (i)- .filter() is just like forEach but only the difference is that in 
+.filter() the inner function will return a value.
+.filter() creates a new array, if inner function return true it puts the value in an array, if the inner function return false it will not put the value in the new array.
+(ii)- .map() is just like forEach and filter(), but it transform an array into another array
+.map() creates a new array, and then whatever we return will be added to new array.
+Closure: means if a function has access to a value, it will always have access to that value. The value gets packaged together (enclosed) with the function
+
+
+
 
 
 
