@@ -68,7 +68,7 @@
             if (event.key === "Enter") {
                 calculateTotal();
             }
-        }
+        };
 
         function calculateTotal() {
             const inputElement = document.querySelector(".js-cost-input");
@@ -78,7 +78,7 @@
             }
 
             document.querySelector(".js-total-cost").innerHTML = `$${cost}`;
-        }
+        };
 
         function subscribe() {
             const buttonElement = document.querySelector(".js-subscribe-button");
@@ -89,8 +89,8 @@
             } else {
                 buttonElement.innerHTML = "Subscribe";
                 buttonElement.classList.remove('is-subscribed');
-            }
-        }
+            };
+        };
     </script>
 </body>
 

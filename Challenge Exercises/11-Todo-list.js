@@ -1,4 +1,4 @@
-const    todoList = JSON.parse(localStorage.getItem('todoList')) || [];
+const todoList = JSON.parse(localStorage.getItem('todoList')) || [];
 
 renderTodoList();
 
@@ -18,12 +18,11 @@ function renderTodoList() {
             ">Delete</button>
         `;
         todoListHTML += html;
-    }
+    };
 
     document.querySelector('.js-todo-list')
         .innerHTML = todoListHTML;
 };
-
 
 function addTodo() {
     const inputElement = document.querySelector('.js-todo-input');
