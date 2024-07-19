@@ -8,19 +8,19 @@ Strategy for Javascript:
    and this is called Algorithm
 
 Falsy values:
-false 0 '' Nan undefined null
+false, 0, "", null, undefined, Nan
 except above list all are truthy values
 Nan: when we do some invalid math
-If the first value is falsy the guard operator will stop early and the result will be the first value, otherwise it wont stop early and give us a second value as a result
-In default operator it will stop early when first value is truthy; it is to set the default value.
+If the first value is falsy the guard operator <&&> will stop early and the result will be the first value, otherwise it wont stop early and give us a second value as a result
+In default operator <||> it will stop early when first value is truthy; it is to set the default value.
 && has a higher priority than || operator
 
 ChaiAurCode:
-**\*\*\*\***\*\*\*\***\*\*\*\*** Variables **\*\*\*\***\*\*\*\***\*\*\*\***
+******************** Variables ********************
 Prefer not to use 'var' because of issue in block scope and functional scope
 kisi keyword ke bagair bhi variable bn skta hai (accountCity = "Jaipur"), memory reserve hoskti hai but krna nhi hai aesa kbhi
 
-**\*\*\*\***\*\*\*\***\*\*\*\*** Datatypes **\*\*\*\***\*\*\*\***\*\*\*\***
+******************** Datatypes ********************
 number => 2 to the power 53
 bigint
 string => ""
@@ -41,13 +41,13 @@ true => 1; false/null => 0
 "" => false
 "anas" => true
 
-**\*\*\*\***\*\*\*\***\*\*\*\*** Operations **\*\*\*\***\*\*\*\***\*\*\*\***
+******************** Operations ********************
 "1" + 2 => 12
 1 + "2" => 12
 "1" + 2 + 2 => 122
 1 + 2 + "2" => 32
 
-**\*\*\*\***\*\*\*\***\*\*\*\*** Summary **\*\*\*\***\*\*\*\***\*\*\*\***
+******************** Summary ********************
 Primitive Datatype (call by value)
 7 types: String, Number, Boolean, null, undefined, Symbol, BigInt
 
@@ -88,6 +88,50 @@ Math.max(4, 3, 6, 8);
 Math.random();
 (Math.random() * 10) + 1
 imp trick =  (Math.floor(Math.random() * (max - min + 1)) + min)
+
+******************** Dates ********************
+new Date().toString() => Wed Mar 01 2023 12:43:12 GMT+0000 (Coordinated Universal Time)
+new Date().toDateString() => Wed Mar 01 2023
+new Date().toLocaleString() => 3/1/2023, 12:43:12 PM
+new Date(2023, 0, 23).toDateString() => Mon Jan 23 2023
+new Date(2023, 0, 23, 5, 3).toLocaleString() => Mon Jan 23 2023 05:03:00 AM
+new Date("2023-01-14").toLocaleString() => 1/14/2023, 12:00:00 AM
+new Date("01-14-2023").toLocaleString() => 1/14/2023, 12:00:00 AM
+Date.now() => miliseconds from 01 Jan 1970
+new Date("01-14-2023").getTime() => date into miliseconds
+miliseconds into seconds => miliseconds / 1000
+new Date().getMonth() + 1 => start from (0)
+new Date().getDay() => start from sunday (0) 
+new Date().toLocaleSring('default', { weekend: long }) => we can customize more
+
+******************** Control Flow ********************
+if(balance > 500) console.log('test') => implicit scope (not a best practice)
+comparison operators:
+<, >, <=, >=, ==, !=, ===, !==
+
+logical operators => &&, ||
+
+switch case => agr break use nhi kia to jahan case match kr jayega wahan se saara code execute hoga except default case
+
+extra falsy values for interview => -0, BigInt 0n
+surprised truthy values => "0", 'false', [], {}, 
+
+to check empty array we should check like this:
+if (array.length === 0) { console.log("Array is empty") };
+
+to check empty object we should check like this:
+if (Object.keys(obj).length === 0) { console.log("Object is empty") };
+
+Nullish Coalescing Operator (??): null undefined 
+returns its right-hand side operand when its left-hand side operand is null or undefined, otherwise returns its left-hand side operand.
+val1 = 5 ?? 10 // output => 5
+val1 = null ?? 10 // output => 10
+val1 = undefined ?? 20 // output => 20
+val1 = null ?? 10 ?? 29 // output => 10
+
+Ternary Operator:
+condition ? true : false
+
 
 07-Functions
 a function lets us to reuse code and make our code easier to update
