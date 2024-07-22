@@ -132,6 +132,35 @@ val1 = null ?? 10 ?? 29 // output => 10
 Ternary Operator:
 condition ? true : false
 
+******************** Functions ********************
+sayMyName => reference
+sayMyName() => execution
+
+default value to function parameter = agr argument pass nhi kia to wo default value use hojayegi
+function default(num1 = 2){};
+
+rest operator => extra function arguments ko eik array main pack krke de dega
+function restFunction(...num1){ return num1 };
+restFunction(200, 3000, 399, 299) => [200, 3000, 399, 299]
+
+closures: child function ka parent function ke variable ko access krna
+
+this = current context, current values, current variables ki baat krta hai object scope ke andr agr ho to wrna function main aesa kch nhi deta
+browser ke andr jo global object hai wo hai window object 
+node ke andr this ko console.log krne se empty object aata hai but agr function ke andr this ko console.log kia to bht si values aati hain
+arrow function main this empty object hi deta hai
+
+arrow function use krte hue curly brackets main return use hoga but agr parentheses hain to return use nhi hoga
+implicit return = const addOne = (num1, num2) => num1 + num2
+
+object return krne ke liye parentheses use krne hi parenge
+implicit return = const addOne = (num1, num2) => ({username: 'Anas'})
+
+IIFE: global scope ke pollution se bachne ke liye aur immediately function ko invoke krne ke liye use hota hai
+IIFE ko end krne ke liye semicolon lagana bhi zaroori hai
+
+
+
 
 07-Functions
 a function lets us to reuse code and make our code easier to update
