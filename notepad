@@ -159,7 +159,49 @@ implicit return = const addOne = (num1, num2) => ({username: 'Anas'})
 IIFE: global scope ke pollution se bachne ke liye aur immediately function ko invoke krne ke liye use hota hai
 IIFE ko end krne ke liye semicolon lagana bhi zaroori hai
 
+******************** Arrays ********************
+shallow copies = copy with references (original bhi change hota rahega)
+deep copies = without reference
 
+Array methods:
+push
+pop
+unshift
+shift
+includes
+indexOf
+join
+slice() = original array ko manipulate nhi krta
+splice() = original array ko manipulate krta hai aur range bhi included hoti hai
+concat() = combine two or more arrays and returns a new array
+spread operator = same concat wala kaam bhi ye krta hai easily
+flat(Infinity) = arrays ke andr arrays sb elements ko eik hi array main krdega
+
+Array.isArray('Anas') => false
+Array.from('Anas') => ['A', 'n', 'a', 's']
+const allHeros = [...marvelHeros, ...dcHeros]
+Array.of(var1, var2, var3) => [var1_value, var2_value, var3_value]
+
+High Order Array Loops:
+Map bhi eik iterator hai object ki tarh bs ye key value pair ki sequence yaad rkhta hai and kisi same chz ko repeat nhi hone deta aur forOf loop main bhi use hojaata hai jbke obj use nhi ho paata
+const map = new Map();
+map.set('In', 'India')
+map.set('PK', 'Pakistan')
+
+for (const key of map){
+   console.log(key) => [In, India], [PK, Pakistan]
+}
+for (const [key, value] of map){
+   console.log(key, ':-', value) => [In :- India], [PK :- Pakistan]
+}
+
+forof 'values' deta hai jbke forin 'keys' deta hai
+array ki bhi keys hoti hain jo 0 se start hoti hain aur sb numbers hoti hain
+forin = objects ke saath use hojaata hai easily but map ke saath kaam nhi krta
+
+.forEach((item, index, array) => {});
+
+.reduce((accumulator, currentValue) => {}); = ye do paramters leta hai eik accumulator aur doosra currentValue aur phr callback ke baad initial value bhi deni hoti hai jo first time accumulator leta hai and then uske baad se (accumulator + currentValue) jo result aata hai wo accumulator ki value ban jaati hai
 
 
 07-Functions
@@ -240,7 +282,7 @@ Synchronous code: means computer will wait for one line to finish before going t
 all the code that we normally write will be synchronous code, the only time that code becomes asynchronous is when we use certain features of Javascript like SetTimeout.
 Advantages of SetTimeout: it doesnt block our code for x seconds, it just sets up the timer in the background and go to the next line of code
 SetInterval() it will keep running function in the future. SetInterval returns a number which is like an ID so that can use this ID to stop the interval.
-.forEach is the preferred way to loop through an array, in forEach return keyword works like continue in forloop for skip any iteration, but there is not the easy way to use break in forEach so if we need to use break then its better to use regualar forLoop.
+.forEach is the prefer   way to loop through an array, in forEach return keyword works like continue in forloop for skip any iteration, but there is not the easy way to use break in forEach so if we need to use break then its better to use regualar forLoop.
 
 (PART 2):
 When passing a function into another function it is perfer to use an arrow function, arrow function works mostly like regular function but it have some shortcuts that regular dont have
