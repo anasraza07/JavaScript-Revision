@@ -61,7 +61,6 @@ string.replace('searchValue', 'replaceValue')
 string.split('seperator')
 
 ******************** Numbers and Math ********************
-
 number.toString().length
 number.toFixed(0)
 number.toPrecision(4) => decimal ko precise krke dega 4 digit hi hamesha
@@ -146,9 +145,6 @@ implicit return = const addOne = (num1, num2) => ({username: 'Anas'})
 
 IIFE: global scope ke pollution se bachne ke liye aur immediately function ko invoke krne ke liye use hota hai
 IIFE ko end krne ke liye semicolon lagana bhi zaroori hai
-
-
-
 
 ***************** Javascript Execution Context + Call Stack *****************
 jb ham code file dete hain to sbse pehle jo chz banti hai wo hai 'Global Execution Context' jisko refer krdia jaata hai eik variable = 'this' 
@@ -268,3 +264,103 @@ forin = objects ke saath use hojaata hai easily but map ke saath kaam nhi krta
 .forEach((item, index, array) => {});
 
 .reduce((accumulator, currentValue) => {}); = ye do paramters leta hai eik accumulator aur doosra currentValue aur phr callback ke baad initial value bhi deni hoti hai jo first time accumulator leta hai and then uske baad se (accumulator + currentValue) jo result aata hai wo accumulator ki value ban jaati hai
+
+******************** Objects ********************
+constructor se jo obj banega wo singleton object bnta hai
+example => Object.create
+
+jo literals ki tarh ham declare krte hain wo singleton nhi bnta
+
+symbol ko obj main likhne ka tareeqa:
+const mySymbol = Symbol('key01');
+const obj = {
+    [mySymbol]: 'myKey';
+};
+
+Object.freeze(object_name); = object main kch change nhi hoga
+Object.assign(target, source); or we can also use spread operator bcuz it is easy as well as latest
+Object.keys(object_name) => output in array datatype
+Object.values(object_name) => output in array datatype
+Object.entries(object_name);
+Object.hasOwnProperty(property_name);
+
+destructuring krte waqt property ka naam bhi change kr skte hain yu
+const {courseInstructor: instructor} = course;
+
+******************** DOM Manipulation ********************
+HTMLCollection, NodeList alag alag hain array ki tarh hote hain but array nhi hotay
+HTMLCollection bhi alag hota hai NodeList se
+
+document.getElementById('title').id;
+document.getElementById('title').class;
+document.getElementById('title').getAttribute('id');
+document.getElementById('title').getAttribute('class');
+document.getElementById('title').setAttribute('class', 'test');
+document.getElementByClassName('heading');
+
+
+const title = document.getElementById('title');
+title.style.backgroundColor = 'green';
+
+title.textContent; = saara text dedega jo css se hide kia hoga wo bhi text show krdega textContent
+title.innerHTML; = poora html deta hai
+title.innerText; = wo text dega jo visible hoga body pr
+
+document.querySelector('.h1')
+document.querySelectorAll('.h1')
+NodeList[0].style.color = 'red';
+
+convert nodeList or HTMLCollection into array:
+Array.from(HTMLCollection)
+
+const parent = document.querySelector('.parent');
+parent.children; => output in HTMLCollection
+document.querySelector('.parent').children[1].innerHTML;
+HTMLCollection ko loop krne ke liye for loop to kaam aata hai
+
+parent.firstElementChild
+parent.lastElementChild
+
+child.parentElement
+child.nextElementSibling
+
+parent.childNodes = is nodes main poora eik tree alag se hota hai jis main line break bhi eik text count hota hai, comment bhi hota hai aur element to hota hi hai
+
+const div = document.createElement('div');
+div.className = 'abc'
+div.setAttribute('title', 'my title');
+div.innerText = 'My text is here'; => ye dhund ke value ko overwrite krta hai
+but ye aese bhi kia jaaskta hai:
+const addText = document.createTextNode('My text is here');
+div.appendChild(addText) => it is just optimized code
+document.body.appendChild(div)
+
+EDIT:
+secondChild.innerHTML = 'xyz';
+secondChild.replaceWith(newChild); (optimized)
+secondChild.outerHTML = '<li>zyx</li>'
+
+REMOVE:
+child.remove();
+removeChild(child_element)
+
+******************** Events ********************
+addEventListener ka eik third parameter bhi hota hai jisko kehte hain event propagation jiski value true ya false hoti hai
+false value = event bubbling (bottom to top), is bubbling ko stop krne ke liye bhi eik aata hai event.stopPropagation(); jo top pe nhi jaata 
+true value = event capturing (top to bottom)
+ul.addEventListener('click', function(){
+    console.log('clicked')
+}, false)
+li.addEventListener('click', function(){
+    console.log('clicked')
+}, false)
+ab pehle li waala log chalega phr ul waala lekin true value main iska opposite hoga
+e.preventDefault() se uska default behaviour ruk jaata hai
+event.target => means ye event kahan se aaraha hai wo element milta hai aapko
+e.target.parentNode
+e.target.tagName
+
+
+
+
+
