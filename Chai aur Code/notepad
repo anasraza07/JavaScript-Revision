@@ -348,18 +348,45 @@ removeChild(child_element)
 addEventListener ka eik third parameter bhi hota hai jisko kehte hain event propagation jiski value true ya false hoti hai
 false value = event bubbling (bottom to top), is bubbling ko stop krne ke liye bhi eik aata hai event.stopPropagation(); jo top pe nhi jaata 
 true value = event capturing (top to bottom)
+
 ul.addEventListener('click', function(){
     console.log('clicked')
 }, false)
 li.addEventListener('click', function(){
     console.log('clicked')
 }, false)
+
 ab pehle li waala log chalega phr ul waala lekin true value main iska opposite hoga
+
 e.preventDefault() se uska default behaviour ruk jaata hai
 event.target => means ye event kahan se aaraha hai wo element milta hai aapko
 e.target.parentNode
 e.target.tagName
 
+******************** Async Javascript *******************
+Javasccript:
+    - Synchronous
+    - Single threaded (default)
+
+Execution Context
+    - execute one line of code at a time
+    - each operation waits for the last one to complete before executing
+
+Blocking code 
+    - block the flow of program
+    - read file sync
+    VS Non Blocking code
+    - does not block execution
+    - read file async 
+
+setInterval() ka third argument bhi hota hai jo callback function ke parameter main milta hai
+
+Promises ko ham create bhi krte hain aur consume bhi
+.then() ka relation direct resolve se hota hai, in dono ko connect krne ke liye resolve() method ko call krna parta hai
+reject ki value .catch() main milti hai
+chaining krte waqt .then() jo return kare wohi next waale .then() ko miljaati hai value
+.finally() => ye to hamesha hamesha execute hoga 
+async await ka eik problem hai wo direct hi erros handle nhi kr skte, isi liye pr try/catch use hote hain unke through error gracefully handle hojaate hain
 
 
 
