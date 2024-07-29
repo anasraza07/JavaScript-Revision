@@ -387,7 +387,28 @@ reject ki value .catch() main milti hai
 chaining krte waqt .then() jo return kare wohi next waale .then() ko miljaati hai value
 .finally() => ye to hamesha hamesha execute hoga 
 async await ka eik problem hai wo direct hi erros handle nhi kr skte, isi liye pr try/catch use hote hain unke through error gracefully handle hojaate hain
+Promis.race() => ye khud eik promise return krta hai jis main sbse pehle run hone waale promise ki value resolve hojaati hai ya reject jo bhi
 
+******************** Classes and OOPs *******************
+javascript main classes nhi hoti, it is a prototype-based-language baaqi is main jo kch hota hai wo syntatic sugar hota hai 
+OOP eik cod likhne ka structure hai jese functional structure hai aur bhi hain bht saare, eik tareeqa hai bs jo code ko messup hone se bachaata hai
+parts of OOP:
+    - constructor function
+    - prototypes
+    - classes
+    - instances (new, this)
 
+current context ko pehchaanne ke liye this keyword use hota hai kaam aata hai for example, map() method ko kis tarh pata ke array main jitni values do jb bhi ye sb pe loop chalaata hai bs yehi kaam hota hai 'this' keyword ka current context dekhna usko access krna
+'new' keyword likhne se sbse pehle eik empty object create hota hai jisko instance kaha jaata hai, second: aapka constructor function call hota hai, third: this keyword ke andr jo arguments likhe hain ye sb inject hojaate hain      
 
+prototypal behaviour javascript ka default behaviour hai js haar nhi maanti eik ke ooper layer main jaati hai parent ke grandparents sbki values tk jaati hai access krti hai jb tk isko null naa miljaye, isi prototype ke through new keyword, this keyword apki classes aur inheritance jese feature milte hain
 
+javascript main sb kch hi object hai, function function bhi hota hai but at the end of the day function object bhi hota hai
+this mtlb jis to jisne bhi bulaaya hai call kia hai uska kaam krdo current context ka 
+
+Here's what happens behind the scenes when the new keyword is used:
+
+1. A new object is created: The new keyword initiates the creation of a new JavaScript object.
+2. A prototype is linked: The newly created object gets linked to the prototype property of the constructor function. This means that it has access to properties and methods defined on the constructor's prototype.
+3. The constructor is called: The constructor function is called with the specified arguments and this is bound to the newly created object. If no explicit return value is specified from the constructor, JavaScript assumes this, the newly created object, to be the intended return value.
+4. The new object is returned: After the constructor function has been called, if it doesn't return a non-primitive value (object, array, function, etc.), the newly created object is returned.
